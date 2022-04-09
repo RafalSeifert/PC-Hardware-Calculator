@@ -8,7 +8,7 @@ import { TableComponent } from 'src/app/calculator/components/table/table.compon
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'calculator',
     component: CalculatorComponent,
   },
 ];
