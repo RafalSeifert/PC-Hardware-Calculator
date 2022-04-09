@@ -1,0 +1,4 @@
+mat-card {
+  width: min(85%, 600px);
+  margin-inline: auto
+}

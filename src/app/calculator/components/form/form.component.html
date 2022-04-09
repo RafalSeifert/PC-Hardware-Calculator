@@ -1,0 +1,27 @@
+<mat-card fxLayout="column">
+  <mat-card-title fxLayoutAlign="center">Fill your product info</mat-card-title>
+  <mat-form-field appearance="outline">
+    <mat-label>Product name</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <div fxLayoutAlign="space-between" fxLayoutGap="10px">
+    <mat-form-field fxFlex="75" appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select placeholder="Category">
+        <mat-option value="Computer components">Computer components</mat-option>
+        <mat-option value="Peripherals">Peripherals</mat-option>
+        <mat-option value="Software">Software</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+  </div>
+  <div fxLayoutAlign="center"></div>
+</mat-card>
