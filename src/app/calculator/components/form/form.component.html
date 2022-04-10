@@ -1,26 +1,35 @@
-<mat-card fxLayout="column">
+<mat-card>
   <mat-card-title fxLayoutAlign="center">Fill your product info</mat-card-title>
-  <mat-form-field appearance="outline">
-    <mat-label>Product name</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Description</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Category</mat-label>
-    <mat-select placeholder="Category">
-      <mat-option *ngFor="let category of categories" [value]="category">{{
-        category
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field fxFlex appearance="outline">
-    <mat-label>Price ($)</mat-label>
-    <input matInput type="number" />
-  </mat-form-field>
+  <form [formGroup]="productForm" fxLayout="column">
+    <mat-form-field appearance="outline">
+      <mat-label>Product name</mat-label>
+      <input formControlName="name" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input formControlName="description" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" placeholder="Category">
+        <mat-option *ngFor="let category of categories" [value]="category">{{
+          category
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex appearance="outline">
+      <mat-label>Price ($)</mat-label>
+      <input formControlName="price" matInput type="number" />
+    </mat-form-field>
+  </form>
   <div fxLayoutAlign="center">
-    <button mat-raised-button color="primary" fxFlex="30">Add product</button>
+    <button
+      mat-raised-button
+      color="primary"
+      fxFlex="30"
+      (click)="addProduct()"
+    >
+      Add product
+    </button>
   </div>
 </mat-card>

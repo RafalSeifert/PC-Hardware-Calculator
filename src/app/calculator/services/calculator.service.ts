@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ProductInterface } from 'src/app/calculator/types/product.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalculatorService {
-  products: ProductInterface[] = [
+  productsChanged = new Subject<ProductInterface[]>();
+  private products: ProductInterface[] = [
     {
       id: '1',
       name: 'CPU',
@@ -25,5 +27,10 @@ export class CalculatorService {
 
   getProducts() {
     return this.products.slice();
+  }
+
+  addProduct(product: ProductInterface) {
+    this.products.push(product);
+    this.productsChanged.next(this.products.slice());
   }
 }
