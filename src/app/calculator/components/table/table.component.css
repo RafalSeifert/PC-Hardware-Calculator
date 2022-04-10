@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  margin: 100px auto;
+
+  width: min(85%, 1100px);
+}
+
+td, th {
+  width: 25%;
+}
