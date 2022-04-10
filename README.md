@@ -1,27 +1,37 @@
-# PcHardwareCalculator
+# PC Hardware Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+## Overview
+A small web application that helps you plan and summarize a build of PC setup. It implements a modern user experience with the help of Angular Material Library. Built using Typescript and Angular 13 framework. 
 
-## Development server
+Created and supported by Rafał Seifert @ https://github.com/RafalSeifert
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![PCHardwareCalculator](https://user-images.githubusercontent.com/89251162/162637396-c0f5e6ab-04dc-4346-b6b1-f2bf34c4a6c2.JPG)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+* CRUD for managing products
+* Responsive UI for Desktop, Tablet, Mobile
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Getting Started
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+What you need to run this app:
+* [Node and NPM](https://nodejs.org)
+* [Angular CLI](https://cli.angular.io/) (`npm install -g @angular/cli`)
 
-## Running end-to-end tests
+## Installing
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* `clone` this repository
+* `cd pc-hardware-calculator` to navigate to the root directory of the app.
+* `npm install` to install npm dependencies.
 
-## Further help
+## Running the app
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+After you have installed all dependencies you can now run the app with the npm start script
+```bash
+npm start
+```
+
+
