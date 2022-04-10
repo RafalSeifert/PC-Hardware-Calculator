@@ -18,8 +18,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 const routes: Routes = [
   {
@@ -44,7 +46,13 @@ const routes: Routes = [
     DragDropModule,
     MatPaginatorModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
-  declarations: [CalculatorComponent, FormComponent, TableComponent],
+  declarations: [
+    CalculatorComponent,
+    FormComponent,
+    TableComponent,
+    SnackbarComponent,
+  ],
 })
 export class CalculatorModule {}
