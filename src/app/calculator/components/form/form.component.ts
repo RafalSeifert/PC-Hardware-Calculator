@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
 
   addProduct() {
     const newProduct: ProductInterface = {
-      id: Math.random(),
+      id: this.calculatorService.products.length + 1,
       name: this.productForm.value.name,
       description: this.productForm.value.description,
       category: this.productForm.value.category,

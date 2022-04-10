@@ -4,6 +4,8 @@ import { MatTable } from '@angular/material/table';
 import { ProductInterface } from 'src/app/calculator/types/product.interface';
 import { CalculatorService } from 'src/app/calculator/services/calculator.service';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from 'src/app/calculator/components/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-calculator-table',
@@ -11,24 +13,24 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit, OnDestroy {
-  @ViewChild('table') table!: MatTable<ProductInterface>;
+  @ViewChild('table') table!: MatTable<ProductInterface[]>;
   displayedColumns: string[] = [
+    'id',
     'name',
     'description',
     'category',
     'price',
     'action',
   ];
-  products!: ProductInterface[];
-  private productsChangeSub!: Subscription;
-  updateId!: any;
-  isEditEnabled: boolean = false;
+  products: ProductInterface[];
+  private productsChangeSub: Subscription;
 
-  constructor(private calculatorService: CalculatorService) {}
-
-  ngOnInit(): void {
-    // Getting product's list from CalculatorService
+  constructor(
+    private calculatorService: CalculatorService,
+    private _snackBar: MatSnackBar
+  ) {
     this.products = this.calculatorService.getProducts();
+
     this.productsChangeSub = this.calculatorService.productsChanged.subscribe(
       (products: ProductInterface[]) => {
         this.products = products;
@@ -36,8 +38,18 @@ export class TableComponent implements OnInit, OnDestroy {
     );
   }
 
+  ngOnInit(): void {
+    // Getting product's list from CalculatorService
+  }
+
   ngOnDestroy(): void {
     this.productsChangeSub.unsubscribe();
+  }
+
+  getTotalCost() {
+    return this.products
+      .map((product) => product.price)
+      .reduce((acc, value) => acc + value, 0);
   }
 
   // Table rows drag&drop method
@@ -49,9 +61,13 @@ export class TableComponent implements OnInit, OnDestroy {
 
   onDeleteProduct(index: number) {
     this.calculatorService.deleteProduct(index);
+    this.table.renderRows();
   }
 
-  onEdit(index: number) {
-    console.log(index);
+  openSnackbar(): void {
+    this._snackBar.openFromComponent(SnackbarComponent, { duration: 6000 });
+  }
+  onEditProduct(): void {
+    this.openSnackbar();
   }
 }

@@ -7,7 +7,15 @@ import { ProductInterface } from 'src/app/calculator/types/product.interface';
 })
 export class CalculatorService {
   productsChanged = new Subject<ProductInterface[]>();
-  private products: ProductInterface[] = [];
+  products: ProductInterface[] = [
+    {
+      id: 1,
+      name: 'PC Assembly',
+      description: '',
+      category: 'Other',
+      price: 49,
+    },
+  ];
   constructor() {}
 
   getProducts() {
