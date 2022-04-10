@@ -5,6 +5,13 @@
   width: min(85%, 1100px);
 }
 
+/*
+table {
+  width: 100%;
+} */
+
+
+
 td, th {
   width: 25%;
 }

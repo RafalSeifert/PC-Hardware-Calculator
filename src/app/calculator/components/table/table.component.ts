@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatTable } from '@angular/material/table';
 import { ProductInterface } from 'src/app/calculator/types/product.interface';
 import { CalculatorService } from 'src/app/calculator/services/calculator.service';
+
 @Component({
   selector: 'app-calculator-table',
   templateUrl: './table.component.html',
@@ -16,6 +17,7 @@ export class TableComponent {
     'description',
     'category',
     'price',
+    'action',
   ];
   products: ProductInterface[];
 
