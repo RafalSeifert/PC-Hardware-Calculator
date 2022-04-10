@@ -33,12 +33,13 @@ export class FormComponent implements OnInit {
 
   addProduct() {
     const newProduct: ProductInterface = {
-      id: Math.random().toString(16),
+      id: Math.random(),
       name: this.productForm.value.name,
       description: this.productForm.value.description,
       category: this.productForm.value.category,
       price: this.productForm.value.price,
     };
     this.calculatorService.addProduct(newProduct);
+    this.productForm.reset();
   }
 }

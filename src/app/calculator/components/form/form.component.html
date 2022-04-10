@@ -28,6 +28,7 @@
       color="primary"
       fxFlex="30"
       (click)="addProduct()"
+      [disabled]="productForm.invalid"
     >
       Add product
     </button>

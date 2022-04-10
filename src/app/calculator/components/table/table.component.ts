@@ -21,6 +21,8 @@ export class TableComponent implements OnInit, OnDestroy {
   ];
   products!: ProductInterface[];
   private productsChangeSub!: Subscription;
+  updateId!: any;
+  isEditEnabled: boolean = false;
 
   constructor(private calculatorService: CalculatorService) {}
 
@@ -43,5 +45,13 @@ export class TableComponent implements OnInit, OnDestroy {
     const prevIndex = this.products.findIndex((d) => d === event.item.data);
     moveItemInArray(this.products, prevIndex, event.currentIndex);
     this.table.renderRows();
+  }
+
+  onDeleteProduct(index: number) {
+    this.calculatorService.deleteProduct(index);
+  }
+
+  onEdit(index: number) {
+    console.log(index);
   }
 }
